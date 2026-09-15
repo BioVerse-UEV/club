@@ -1,0 +1,34 @@
+<section class="contacto">
+  <h1>{{ 'contacto.titulo' | traducir }}</h1>
+
+  <div class="contacto__info">
+    <p>{{ siteConfig.emailContacto }}</p>
+    <p>{{ siteConfig.telefonoContacto }}</p>
+    <p>{{ siteConfig.direccion }}</p>
+  </div>
+
+  <div class="contacto__redes">
+    <h2>{{ 'contacto.redes.titulo' | traducir }}</h2>
+    @for (red of redes; track red.nombre) {
+      <a [href]="red.url" target="_blank" rel="noopener">{{ red.nombre }}</a>
+    }
+  </div>
+
+  <div class="contacto__sugerencias">
+    <h2>{{ 'contacto.sugerencias.titulo' | traducir }}</h2>
+    @if (enviado()) {
+      <p class="contacto__exito">{{ 'contacto.sugerencias.exito' | traducir }}</p>
+    }
+    <form [formGroup]="formulario" (ngSubmit)="enviarSugerencia()">
+      <label>
+        {{ 'contacto.sugerencias.nombre' | traducir }}
+        <input type="text" formControlName="nombre">
+      </label>
+      <label>
+        {{ 'contacto.sugerencias.mensaje' | traducir }}
+        <textarea formControlName="mensaje" rows="4"></textarea>
+      </label>
+      <button type="submit">{{ 'contacto.sugerencias.enviar' | traducir }}</button>
+    </form>
+  </div>
+</section>
