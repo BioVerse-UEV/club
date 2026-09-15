@@ -1,0 +1,63 @@
+.estudio {
+  padding: 2rem;
+
+  &__panel {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  &__lofi {
+    flex: 1 1 300px;
+  }
+
+  &__pista {
+    margin-bottom: 1rem;
+
+    audio {
+      width: 100%;
+    }
+  }
+
+  &__pomodoro {
+    flex: 1 1 250px;
+    text-align: center;
+  }
+
+  &__reloj {
+    font-size: 3rem;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  &__botones {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+
+    button {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+
+  &__pinturas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+
+    img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    figcaption {
+      text-align: center;
+      margin-top: 0.3rem;
+    }
+  }
+}

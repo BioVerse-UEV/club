@@ -1,0 +1,40 @@
+<section class="estudio">
+  <h1>{{ 'estudio.titulo' | traducir }}</h1>
+
+  <div class="estudio__panel">
+    <div class="estudio__lofi">
+      <h2>{{ 'estudio.lofi.titulo' | traducir }}</h2>
+      @for (pista of pistas; track pista.id) {
+        <div class="estudio__pista">
+          <p>{{ pista.titulo }}</p>
+          <audio controls [src]="pista.archivo"></audio>
+        </div>
+      }
+    </div>
+
+    <div class="estudio__pomodoro">
+      <h2>{{ 'estudio.pomodoro.titulo' | traducir }}</h2>
+      <p class="estudio__reloj">{{ pomodoro.tiempoFormateado() }}</p>
+      <div class="estudio__botones">
+        @if (!pomodoro.activo()) {
+          <button (click)="pomodoro.iniciar()">{{ 'estudio.pomodoro.iniciar' | traducir }}</button>
+        } @else {
+          <button (click)="pomodoro.pausar()">{{ 'estudio.pomodoro.pausar' | traducir }}</button>
+        }
+        <button (click)="pomodoro.reiniciar()">{{ 'estudio.pomodoro.reiniciar' | traducir }}</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="estudio__pinturas">
+    <h2>{{ 'estudio.pinturas.titulo' | traducir }}</h2>
+    <div class="estudio__pinturas-grid">
+      @for (pintura of pinturas; track pintura.id) {
+        <figure>
+          <img [src]="pintura.imagen" [alt]="pintura.titulo">
+          <figcaption>{{ pintura.titulo }} — {{ pintura.autor }}</figcaption>
+        </figure>
+      }
+    </div>
+  </div>
+</section>
