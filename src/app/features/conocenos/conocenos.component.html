@@ -1,0 +1,25 @@
+<section class="timeline">
+  <h1>{{ 'conocenos.timeline.titulo' | traducir }}</h1>
+  <div class="timeline__linea">
+    @for (presidente of presidentes; track presidente.id) {
+      <div class="timeline__item" [class]="'timeline__item--' + presidente.tipo">
+        <img [src]="presidente.foto" [alt]="presidente.nombre">
+        <h3>{{ presidente.nombre }}</h3>
+        <p>{{ presidente.periodo }}</p>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="equipo">
+  <h2>{{ 'conocenos.equipo.titulo' | traducir }}</h2>
+  <div class="equipo__grid">
+    @for (miembro of equipo; track miembro.id) {
+      <article>
+        <img [src]="miembro.foto" [alt]="miembro.nombre">
+        <h3>{{ miembro.nombre }}</h3>
+        <p>{{ miembro.rol }}</p>
+      </article>
+    }
+  </div>
+</section>
