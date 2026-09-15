@@ -1,0 +1,49 @@
+.contacto {
+  padding: 2rem;
+  max-width: 600px;
+
+  &__info p {
+    margin: 0.2rem 0;
+  }
+
+  &__redes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+  }
+
+  &__exito {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    input,
+    textarea {
+      border: 1px solid var(--color-primary);
+      border-radius: 4px;
+      padding: 0.5rem;
+      font-family: inherit;
+    }
+
+    button {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      padding: 0.7rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+}
