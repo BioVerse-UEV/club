@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-primary: #FF3228;
+  --color-text: #5E0200;
+  --color-white: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: var(--color-white);
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
