@@ -1,0 +1,39 @@
+.eventos {
+  padding: 2rem;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  &__card {
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  &__fotos {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+
+    img {
+      width: 120px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  }
+
+  &__fecha {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  &__enlaces {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+}

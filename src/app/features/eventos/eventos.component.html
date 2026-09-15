@@ -1,0 +1,23 @@
+<section class="eventos">
+  <h1>{{ 'eventos.titulo' | traducir }}</h1>
+  <div class="eventos__grid">
+    @for (evento of eventos; track evento.id) {
+      <article class="eventos__card">
+        <div class="eventos__fotos">
+          @for (foto of evento.fotos; track foto) {
+            <img [src]="foto" [alt]="evento.titulo">
+          }
+        </div>
+        <h3>{{ evento.titulo }}</h3>
+        <p class="eventos__fecha">{{ evento.fecha }}</p>
+        <p>{{ evento.sinopsis }}</p>
+        <div class="eventos__enlaces">
+          <a [href]="evento.videoUrl" target="_blank" rel="noopener">{{ 'eventos.verVideo' | traducir }}</a>
+          @if (evento.liveUrl) {
+            <a [href]="evento.liveUrl" target="_blank" rel="noopener">{{ 'eventos.verLive' | traducir }}</a>
+          }
+        </div>
+      </article>
+    }
+  </div>
+</section>
