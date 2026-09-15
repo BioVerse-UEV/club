@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <span class="navbar__marca">{{ nombreClub }}</span>
+  <ul class="navbar__lista">
+    @for (item of navegacion; track item.ruta) {
+      <li>
+        <a [routerLink]="item.ruta" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">
+          {{ item.etiqueta | traducir }}
+        </a>
+      </li>
+    }
+  </ul>
+  <div class="navbar__idiomas">
+    <button (click)="translationService.cambiarIdioma('es')">ES</button>
+    <button (click)="translationService.cambiarIdioma('en')">EN</button>
+  </div>
+</nav>
