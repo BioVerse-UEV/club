@@ -1,0 +1,17 @@
+.footer {
+  padding: 1.5rem 2rem;
+  text-align: center;
+  background-color: var(--color-text);
+  color: var(--color-white);
+
+  &__redes {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+
+    a {
+      color: var(--color-white);
+    }
+  }
+}

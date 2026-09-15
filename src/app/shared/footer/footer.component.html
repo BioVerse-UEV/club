@@ -1,0 +1,8 @@
+<footer class="footer">
+  <div class="footer__redes">
+    @for (red of redes; track red.nombre) {
+      <a [href]="red.url" target="_blank" rel="noopener">{{ red.nombre }}</a>
+    }
+  </div>
+  <p>&copy; {{ anio }} {{ nombreClub }}</p>
+</footer>
