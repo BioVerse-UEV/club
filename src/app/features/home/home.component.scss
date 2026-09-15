@@ -1,0 +1,29 @@
+.home {
+  &__hero {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
+  }
+
+  &__logo {
+    flex: 0 0 300px;
+    height: 300px;
+  }
+
+  &__video iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  &__eventos-recientes {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+
+    img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+}

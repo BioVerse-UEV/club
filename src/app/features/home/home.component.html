@@ -1,0 +1,31 @@
+<section class="home__hero">
+  <div class="home__logo">
+    <app-logo-3d></app-logo-3d>
+  </div>
+  <div>
+    <h1>{{ 'home.hero.titulo' | traducir }}</h1>
+    <p>{{ 'home.hero.subtitulo' | traducir }}</p>
+  </div>
+</section>
+
+<section class="home__ultimo">
+  <h2>{{ 'home.ultimo.titulo' | traducir }}</h2>
+  <div class="home__video">
+    <iframe
+      [src]="homeData.ultimoVideoUrl"
+      title="{{ homeData.ultimoVideoTitulo }}"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+    <p>{{ homeData.ultimoVideoTitulo }}</p>
+  </div>
+
+  <div class="home__eventos-recientes">
+    @for (evento of ultimosEventos; track evento.id) {
+      <article>
+        <img [src]="evento.fotos[0]" [alt]="evento.titulo">
+        <h3>{{ evento.titulo }}</h3>
+      </article>
+    }
+  </div>
+</section>
