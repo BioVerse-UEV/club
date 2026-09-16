@@ -13,12 +13,12 @@ export class TranslationService {
   readonly idioma = computed(() => this.idiomaActual());
 
   cargarIdioma(idioma: Idioma): Promise<void> {
-    return firstValueFrom(
-      this.http.get<Record<string, unknown>>(`assets/i18n/${idioma}.json`),
-    ).then((datos) => {
-      this.traducciones.set(datos);
-      this.idiomaActual.set(idioma);
-    });
+    return firstValueFrom(this.http.get<Record<string, unknown>>(`i18n/${idioma}.json`)).then(
+      (datos) => {
+        this.traducciones.set(datos);
+        this.idiomaActual.set(idioma);
+      },
+    );
   }
 
   cambiarIdioma(idioma: Idioma): Promise<void> {
