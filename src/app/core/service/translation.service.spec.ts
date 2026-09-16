@@ -1,20 +1,35 @@
 import { TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TranslationService } from './translation.service';
 
 describe('TranslationService', () => {
   let service: TranslationService;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
     service = TestBed.inject(TranslationService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
-  it('devuelve la traducción en español por defecto', () => {
+  afterEach(() => {
+    httpMock.verify();
+  });
+
+  it('carga y devuelve traducciones en español', async () => {
+    const promesa = service.cargarIdioma('es');
+    httpMock.expectOne('assets/i18n/es.json').flush({ nav: { inicio: 'Inicio' } });
+    await promesa;
     expect(service.traducir('nav.inicio')).toBe('Inicio');
   });
 
-  it('devuelve la traducción en inglés tras cambiar de idioma', () => {
-    service.cambiarIdioma('en');
+  it('carga y devuelve traducciones en inglés', async () => {
+    const promesa = service.cambiarIdioma('en');
+    httpMock.expectOne('assets/i18n/en.json').flush({ nav: { inicio: 'Home' } });
+    await promesa;
     expect(service.traducir('nav.inicio')).toBe('Home');
   });
 
