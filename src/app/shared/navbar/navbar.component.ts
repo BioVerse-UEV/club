@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
 import { TranslationService } from '../../core/service/translation.service';
@@ -15,6 +15,15 @@ import { SITE_CONFIG } from '../../core/data/site-config.data';
 export class NavbarComponent {
   navegacion = NAVEGACION;
   nombreClub = SITE_CONFIG.nombreClub;
+  menuAbierto = signal(false);
 
   constructor(public translationService: TranslationService) {}
+
+  alternarMenu(): void {
+    this.menuAbierto.update((valor) => !valor);
+  }
+
+  cerrarMenu(): void {
+    this.menuAbierto.set(false);
+  }
 }

@@ -2,20 +2,26 @@
   <div class="navbar__logo">
     <img src="img/logo-header.png" [alt]="nombreClub">
   </div>
-  <nav class="navbar__nav">
+  <button class="navbar__toggle" (click)="alternarMenu()" [attr.aria-expanded]="menuAbierto()">
+
+  </button>
+
+  <nav class="navbar__nav" [class.navbar__nav--abierto]="menuAbierto()">
     <ul>
       @for (item of navegacion; track item.ruta) {
         <li>
           <a [routerLink]="item.ruta"
              routerLinkActive="navbar__link--activo"
              [routerLinkActiveOptions]="{exact: true}"
-             class="navbar__link">
+             class="navbar__link"
+             (click)="cerrarMenu()">
             {{ item.etiqueta | traducir }}
           </a>
         </li>
       }
     </ul>
   </nav>
+
   <div class="navbar__idiomas">
     <button (click)="translationService.cambiarIdioma('es')">Es</button>
     <span>/</span>
