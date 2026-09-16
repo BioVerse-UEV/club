@@ -4,4 +4,5 @@ export const SITE_CONFIG = {
   emailContacto: 'PENDIENTE DE PONER EMAIL',
   telefonoContacto: 'PENDIENTE DE PONER TELEFONO',
   direccion: 'PENDIENTE DE PONER DIRECCION',
+  poweredBy: 'Kallik',
 };
