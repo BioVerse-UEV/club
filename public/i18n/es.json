@@ -1,9 +1,9 @@
 {
   "nav": {
     "inicio": "Inicio",
-    "conocenos": "Conócenos",
-    "eventos": "Eventos",
-    "estudio": "Estudio",
+    "conocenos": "Sobre nosotros",
+    "eventos": "Media",
+    "estudio": "Herramientas",
     "contacto": "Contáctanos",
     "join": "Únete"
   },
