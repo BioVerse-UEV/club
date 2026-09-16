@@ -1,29 +1,61 @@
 .home {
   &__hero {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    padding: 3rem 2rem;
+    position: relative;
+    height: 100vh;
+    background-color: var(--color-text);
+    overflow: hidden;
   }
 
-  &__logo {
-    flex: 0 0 300px;
-    height: 300px;
-  }
+  &__hero-titulo {
+    position: absolute;
+    font-size: clamp(5rem, 20vw, 15rem);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    line-height: 0.82;
+    color: var(--color-white);
+    white-space: nowrap;
+    margin: 0;
 
-  &__video iframe {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-  }
-
-  &__eventos-recientes {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-
-    img {
-      width: 100%;
-      border-radius: 8px;
+    &--frente {
+      top: 0;
+      left: 0;
+      z-index: 3;
     }
+
+    &--fondo {
+      bottom: 0;
+      right: 0;
+      text-align: right;
+      opacity: 0.15;
+      filter: blur(3px);
+      z-index: 1;
+    }
+  }
+
+  &__hero-logo {
+    position: absolute;
+    top: 50%;
+    right: 6vw;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 380px;
+    height: 380px;
+  }
+
+  &__hero-pie {
+    position: absolute;
+    left: 2rem;
+    bottom: 1.5rem;
+    z-index: 3;
+    color: var(--color-white);
+    font-size: 0.8rem;
+
+    p {
+      margin: 0.15rem 0;
+    }
+  }
+
+  &__hero-club {
+    font-weight: bold;
   }
 }

@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
-import { TranslatePipe } from '../../core/pipes/translate.pipe';
 import { Logo3dComponent } from '../../shared/logo-3d/logo-3d.component';
-import { HOME_DATA } from '../../core/data/home.data';
-import { EVENTOS } from '../../core/data/eventos.data';
+import { SITE_CONFIG } from '../../core/data/site-config.data';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [TranslatePipe, Logo3dComponent],
+  imports: [Logo3dComponent, UpperCasePipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  homeData = HOME_DATA;
-  ultimosEventos = EVENTOS.filter((evento) => HOME_DATA.ultimosEventosIds.includes(evento.id));
+  siteConfig = SITE_CONFIG;
 }
