@@ -1,17 +1,28 @@
 .footer {
-  padding: 1.5rem 2rem;
-  text-align: center;
+  height: var(--footer-height);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 2rem;
   background-color: var(--color-text);
   color: var(--color-white);
+  border-top: 2px solid var(--color-primary);
 
   &__redes {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 0.5rem;
 
     a {
       color: var(--color-white);
     }
+  }
+
+  &__creditos {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
   }
 }
