@@ -1,7 +1,23 @@
 :root {
   --color-primary: #FF3228;
-  --color-text: #5E0200;
+  --color-primary-dark: #9A2213;
+  --color-primary-light: #EF8D84;
+
+  --color-teal-dark: #2A5955;
+  --color-teal: #2AB3AB;
+  --color-teal-light: #D6F4F2;
+
+  --color-indigo-dark: #182057;
+  --color-indigo: #7685DD;
+  --color-indigo-light: #D2D6F0;
+
+  --color-ink: #1F1F1F;
+  --color-gray: #6A6868;
+  --color-gray-light: #E9E9E9;
+
+  --color-text: var(--color-primary-dark);
   --color-white: #FFFFFF;
+
   --navbar-height: 64px;
   --footer-height: 96px;
 }
