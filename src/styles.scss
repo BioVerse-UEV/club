@@ -2,6 +2,8 @@
   --color-primary: #FF3228;
   --color-text: #5E0200;
   --color-white: #FFFFFF;
+  --navbar-height: 64px;
+  --footer-height: 96px;
 }
 
 * {
@@ -10,6 +12,7 @@
 
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: 'Segoe UI', system-ui, sans-serif;
   background-color: var(--color-white);
   color: var(--color-text);
