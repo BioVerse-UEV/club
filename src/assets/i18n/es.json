@@ -1,0 +1,49 @@
+{
+  "nav": {
+    "inicio": "Inicio",
+    "conocenos": "Conócenos",
+    "eventos": "Eventos",
+    "estudio": "Estudio",
+    "contacto": "Contáctanos"
+  },
+  "home": {
+    "hero": {
+      "titulo": "Bienvenidos a BioVerse",
+      "subtitulo": "El club de biotecnología de la Universidad Europea de Valencia"
+    },
+    "ultimo": {
+      "titulo": "Lo último"
+    }
+  },
+  "conocenos": {
+    "timeline": { "titulo": "Nuestra Historia" },
+    "equipo": { "titulo": "El Equipo" }
+  },
+  "eventos": {
+    "titulo": "Eventos y Media",
+    "verVideo": "Ver vídeo",
+    "verLive": "Ver en directo"
+  },
+  "estudio": {
+    "titulo": "Sala de Estudio",
+    "lofi": { "titulo": "Música Lofi" },
+    "pomodoro": {
+      "titulo": "Pomodoro",
+      "iniciar": "Iniciar",
+      "pausar": "Pausar",
+      "reiniciar": "Reiniciar"
+    },
+    "pinturas": { "titulo": "Galería de Pinturas" }
+  },
+  "contacto": {
+    "titulo": "Contacto",
+    "redes": { "titulo": "Síguenos" },
+    "sugerencias": {
+      "titulo": "Buzón de Sugerencias",
+      "nombre": "Nombre",
+      "mensaje": "Mensaje",
+      "enviar": "Enviar",
+      "exito": "¡Gracias por tu sugerencia!"
+    }
+  }
+}
