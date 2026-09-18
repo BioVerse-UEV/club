@@ -1,0 +1,110 @@
+.pomodoro {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+
+  &__contador,
+  &__asignatura {
+    flex: 1 1 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__reloj {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    text-align: center;
+    margin: 0;
+  }
+
+  &__duracion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    color: var(--color-primary);
+
+    input {
+      border: 1px solid var(--color-primary);
+      border-radius: 4px;
+      padding: 0.4rem;
+    }
+  }
+
+  &__botones {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    button {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+
+  &__total {
+    text-align: center;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  &__imagen {
+    position: relative;
+    flex: 1 1 260px;
+    min-height: 260px;
+    background-color: var(--color-gray-light);
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 1s linear;
+    }
+  }
+
+  &__imagen-info {
+    position: absolute;
+    left: 0.75rem;
+    bottom: 0.5rem;
+    color: var(--color-white);
+    font-size: 0.8rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+
+    p {
+      margin: 0.1rem 0;
+    }
+  }
+
+  &__asignatura {
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      color: var(--color-primary);
+    }
+
+    select,
+    input {
+      border: 1px solid var(--color-primary);
+      border-radius: 4px;
+      padding: 0.4rem;
+    }
+
+    audio {
+      width: 100%;
+    }
+  }
+
+  &__asignatura-tiempo {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+}

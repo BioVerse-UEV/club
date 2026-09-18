@@ -1,0 +1,59 @@
+<div class="pomodoro">
+  <div class="pomodoro__contador">
+    <p class="pomodoro__reloj">{{ pomodoro.tiempoFormateado() }}</p>
+
+    <label class="pomodoro__duracion">
+      {{ 'herramientas.pomodoro.duracion' | traducir }}
+      <input
+        type="number"
+        min="1"
+        [ngModel]="minutosSeleccionados()"
+        (ngModelChange)="cambiarDuracion($event)"
+        [disabled]="pomodoro.activo()">
+    </label>
+
+    <div class="pomodoro__botones">
+      @if (!pomodoro.activo()) {
+        <button (click)="pomodoro.iniciar()">{{ 'estudio.pomodoro.iniciar' | traducir }}</button>
+      } @else {
+        <button (click)="pomodoro.pausar()">{{ 'estudio.pomodoro.pausar' | traducir }}</button>
+      }
+      <button (click)="pomodoro.reiniciar()">{{ 'estudio.pomodoro.reiniciar' | traducir }}</button>
+    </div>
+
+    <p class="pomodoro__total">{{ 'herramientas.pomodoro.total' | traducir }}: {{ tiempoTotalFormateado() }}</p>
+  </div>
+
+  <div class="pomodoro__imagen">
+    <img [src]="imagen.imagen" [alt]="imagen.titulo" [style.opacity]="pomodoro.progreso()">
+    <div class="pomodoro__imagen-info">
+      <p>{{ imagen.autor }}</p>
+      <p>{{ imagen.titulo }}</p>
+    </div>
+  </div>
+
+  <div class="pomodoro__asignatura">
+    <label>
+      {{ 'herramientas.pomodoro.lofi' | traducir }}
+      <select [ngModel]="pistaSeleccionada()" (ngModelChange)="pistaSeleccionada.set($event)">
+        @for (pista of pistas; track pista.id) {
+          <option [value]="pista.archivo">{{ pista.titulo }}</option>
+        }
+      </select>
+    </label>
+    <audio [src]="pistaSeleccionada()" controls></audio>
+
+    <label>
+      {{ 'herramientas.pomodoro.asignatura' | traducir }}
+      <input
+        type="text"
+        [ngModel]="asignaturaTexto()"
+        (ngModelChange)="actualizarAsignatura($event)"
+        [placeholder]="'herramientas.pomodoro.asignaturaPlaceholder' | traducir">
+    </label>
+
+    <p class="pomodoro__asignatura-tiempo">
+      {{ 'herramientas.pomodoro.tiempoAsignatura' | traducir }}: {{ minutosDeAsignaturaActual() }}
+    </p>
+  </div>
+</div>
