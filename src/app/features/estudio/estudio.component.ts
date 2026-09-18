@@ -1,19 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
-import { PomodoroService } from '../../core/service/pomodoro.service';
-import { PISTAS_LOFI } from '../../core/data/lofi-tracks.data';
+import { PomodoroPanelComponent } from './pomodoro-panel/pomodoro-panel.component';
+import { PALETA_UNIVERSIDAD } from '../../core/data/paleta-universidad.data';
+import { LOGOS_UNIVERSIDAD } from '../../core/data/logos-universidad.data';
 import { PINTURAS } from '../../core/data/pinturas.data';
+
+type PestanaHerramientas = 'recursos' | 'pomodoro' | 'galeria' | 'bases-datos' | 'enlaces-recursos';
 
 @Component({
   selector: 'app-estudio',
   standalone: true,
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, PomodoroPanelComponent],
   templateUrl: './estudio.component.html',
   styleUrl: './estudio.component.scss',
 })
 export class EstudioComponent {
-  pistas = PISTAS_LOFI;
-  pinturas = PINTURAS;
+  paleta = PALETA_UNIVERSIDAD;
+  logos = LOGOS_UNIVERSIDAD;
+  galeria = PINTURAS;
+  pestanaActiva = signal<PestanaHerramientas>('recursos');
 
-  constructor(public pomodoro: PomodoroService) {}
+  seleccionarPestana(pestana: PestanaHerramientas): void {
+    this.pestanaActiva.set(pestana);
+  }
 }

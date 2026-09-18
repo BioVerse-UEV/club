@@ -1,40 +1,70 @@
-<section class="estudio">
-  <h1>{{ 'estudio.titulo' | traducir }}</h1>
+<div class="herramientas">
+  <nav class="herramientas__subheader">
+    <button [class.herramientas__tab--activo]="pestanaActiva() === 'recursos'" (click)="seleccionarPestana('recursos')">
+      {{ 'herramientas.tabs.recursos' | traducir }}
+    </button>
+    <button [class.herramientas__tab--activo]="pestanaActiva() === 'pomodoro'" (click)="seleccionarPestana('pomodoro')">
+      {{ 'herramientas.tabs.pomodoro' | traducir }}
+    </button>
+    <button [class.herramientas__tab--activo]="pestanaActiva() === 'galeria'" (click)="seleccionarPestana('galeria')">
+      {{ 'herramientas.tabs.galeria' | traducir }}
+    </button>
+    <button [class.herramientas__tab--activo]="pestanaActiva() === 'bases-datos'"
+            (click)="seleccionarPestana('bases-datos')">
+      {{ 'herramientas.tabs.basesDatos' | traducir }}
+    </button>
+    <button [class.herramientas__tab--activo]="pestanaActiva() === 'enlaces-recursos'"
+            (click)="seleccionarPestana('enlaces-recursos')">
+      {{ 'herramientas.tabs.enlacesRecursos' | traducir }}
+    </button>
+  </nav>
 
-  <div class="estudio__panel">
-    <div class="estudio__lofi">
-      <h2>{{ 'estudio.lofi.titulo' | traducir }}</h2>
-      @for (pista of pistas; track pista.id) {
-        <div class="estudio__pista">
-          <p>{{ pista.titulo }}</p>
-          <audio controls [src]="pista.archivo"></audio>
-        </div>
+  <div class="herramientas__contenido">
+    @switch (pestanaActiva()) {
+      @case ('recursos') {
+        <section class="recursos">
+          <div class="recursos__paleta">
+            <h2>{{ 'herramientas.recursos.paletaTitulo' | traducir }}</h2>
+            <div class="recursos__swatches">
+              @for (color of paleta; track color.hex) {
+                <div class="recursos__swatch">
+                  <span class="recursos__muestra" [style.background-color]="color.hex"></span>
+                  <span class="recursos__codigo">{{ color.hex }}</span>
+                </div>
+              }
+            </div>
+          </div>
+          <div class="recursos__logos">
+            <h2>{{ 'herramientas.recursos.logoTitulo' | traducir }}</h2>
+            <div class="recursos__logos-grid">
+              @for (logo of logos; track logo.id) {
+                <img [src]="logo.archivo" alt="Universidad Europea de Valencia">
+              }
+            </div>
+          </div>
+        </section>
       }
-    </div>
-
-    <div class="estudio__pomodoro">
-      <h2>{{ 'estudio.pomodoro.titulo' | traducir }}</h2>
-      <p class="estudio__reloj">{{ pomodoro.tiempoFormateado() }}</p>
-      <div class="estudio__botones">
-        @if (!pomodoro.activo()) {
-          <button (click)="pomodoro.iniciar()">{{ 'estudio.pomodoro.iniciar' | traducir }}</button>
-        } @else {
-          <button (click)="pomodoro.pausar()">{{ 'estudio.pomodoro.pausar' | traducir }}</button>
-        }
-        <button (click)="pomodoro.reiniciar()">{{ 'estudio.pomodoro.reiniciar' | traducir }}</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="estudio__pinturas">
-    <h2>{{ 'estudio.pinturas.titulo' | traducir }}</h2>
-    <div class="estudio__pinturas-grid">
-      @for (pintura of pinturas; track pintura.id) {
-        <figure>
-          <img [src]="pintura.imagen" [alt]="pintura.titulo">
-          <figcaption>{{ pintura.titulo }} — {{ pintura.autor }}</figcaption>
-        </figure>
+      @case ('pomodoro') {
+        <app-pomodoro-panel></app-pomodoro-panel>
       }
-    </div>
+      @case ('galeria') {
+        <section class="galeria">
+          <div class="galeria__grid">
+            @for (obra of galeria; track obra.id) {
+              <figure>
+                <img [src]="obra.imagen" [alt]="obra.titulo">
+                <figcaption>{{ obra.titulo }} — {{ obra.autor }}</figcaption>
+              </figure>
+            }
+          </div>
+        </section>
+      }
+      @case ('bases-datos') {
+        <p class="herramientas__pendiente">{{ 'herramientas.enConstruccion' | traducir }}</p>
+      }
+      @case ('enlaces-recursos') {
+        <p class="herramientas__pendiente">{{ 'herramientas.enConstruccion' | traducir }}</p>
+      }
+    }
   </div>
-</section>
+</div>

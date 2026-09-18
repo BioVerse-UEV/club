@@ -1,63 +1,108 @@
-.estudio {
+.herramientas {
   padding: 2rem;
 
-  &__panel {
+  &__subheader {
     display: flex;
-    gap: 3rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
-  }
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
 
-  &__lofi {
-    flex: 1 1 300px;
-  }
-
-  &__pista {
-    margin-bottom: 1rem;
-
-    audio {
-      width: 100%;
+    button {
+      background: none;
+      border: none;
+      color: var(--color-primary);
+      font: inherit;
+      cursor: pointer;
+      padding: 0.3rem 0;
     }
   }
 
-  &__pomodoro {
-    flex: 1 1 250px;
-    text-align: center;
+  &__tab--activo {
+    font-weight: bold;
+    border-bottom: 3px solid var(--color-primary);
   }
 
-  &__reloj {
-    font-size: 3rem;
+  &__pendiente {
     color: var(--color-primary);
     font-weight: bold;
   }
+}
 
-  &__botones {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
+.recursos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 
-    button {
-      background-color: var(--color-primary);
-      color: var(--color-white);
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+  &__paleta,
+  &__logos {
+    flex: 1 1 320px;
   }
 
-  &__pinturas-grid {
+  h2 {
+    color: var(--color-primary);
+  }
+
+  &__swatches {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+  }
+
+  &__swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  &__muestra {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 6px;
+    border: 1px solid var(--color-gray-light);
+  }
+
+  &__codigo {
+    font-size: 0.75rem;
+    color: var(--color-primary);
+  }
+
+  &__logos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    align-items: center;
 
     img {
       width: 100%;
-      border-radius: 8px;
+      height: auto;
     }
+  }
 
-    figcaption {
-      text-align: center;
-      margin-top: 0.3rem;
+  @media (max-width: 600px) {
+    &__logos-grid {
+      grid-template-columns: 1fr;
     }
+  }
+}
+
+.galeria {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  figcaption {
+    text-align: center;
+    margin-top: 0.3rem;
+    color: var(--color-primary);
   }
 }
