@@ -2,15 +2,31 @@
   <div class="pomodoro__contador">
     <p class="pomodoro__reloj">{{ pomodoro.tiempoFormateado() }}</p>
 
-    <label class="pomodoro__duracion">
-      {{ 'herramientas.pomodoro.duracion' | traducir }}
-      <input
-        type="number"
-        min="1"
-        [ngModel]="minutosSeleccionados()"
-        (ngModelChange)="cambiarDuracion($event)"
-        [disabled]="pomodoro.activo()">
-    </label>
+    <div class="pomodoro__duracion">
+      <span class="pomodoro__duracion-etiqueta">{{ 'herramientas.pomodoro.duracion' | traducir }}</span>
+      <div class="pomodoro__duracion-caja">
+        <div class="pomodoro__duracion-campo">
+          <input
+            type="number"
+            min="0"
+            [ngModel]="minutosSeleccionados()"
+            (ngModelChange)="cambiarMinutos($event)"
+            [disabled]="pomodoro.activo()">
+          <span>{{ 'herramientas.pomodoro.min' | traducir }}</span>
+        </div>
+        <span class="pomodoro__duracion-separador">:</span>
+        <div class="pomodoro__duracion-campo">
+          <input
+            type="number"
+            min="0"
+            max="59"
+            [ngModel]="segundosSeleccionados()"
+            (ngModelChange)="cambiarSegundos($event)"
+            [disabled]="pomodoro.activo()">
+          <span>{{ 'herramientas.pomodoro.seg' | traducir }}</span>
+        </div>
+      </div>
+    </div>
 
     <div class="pomodoro__botones">
       @if (!pomodoro.activo()) {
@@ -19,9 +35,13 @@
         <button (click)="pomodoro.pausar()">{{ 'estudio.pomodoro.pausar' | traducir }}</button>
       }
       <button (click)="pomodoro.reiniciar()">{{ 'estudio.pomodoro.reiniciar' | traducir }}</button>
+
     </div>
 
     <p class="pomodoro__total">{{ 'herramientas.pomodoro.total' | traducir }}: {{ tiempoTotalFormateado() }}</p>
+    <button type="button" class="pomodoro__eliminar-todo" (click)="eliminarTodo()">
+      {{ 'herramientas.pomodoro.eliminarTodo' | traducir }}
+    </button>
   </div>
 
   <div class="pomodoro__imagen">
@@ -43,17 +63,41 @@
     </label>
     <audio [src]="pistaSeleccionada()" controls></audio>
 
-    <label>
-      {{ 'herramientas.pomodoro.asignatura' | traducir }}
-      <input
-        type="text"
-        [ngModel]="asignaturaTexto()"
-        (ngModelChange)="actualizarAsignatura($event)"
-        [placeholder]="'herramientas.pomodoro.asignaturaPlaceholder' | traducir">
-    </label>
+    <div class="pomodoro__nueva-asignatura">
+      <label>
+        {{ 'herramientas.pomodoro.asignatura' | traducir }}
+        <input
+          type="text"
+          [ngModel]="nuevaAsignaturaTexto()"
+          (ngModelChange)="actualizarNuevaAsignatura($event)"
+          (keyup.enter)="agregarAsignatura()"
+          [placeholder]="'herramientas.pomodoro.nuevaAsignaturaPlaceholder' | traducir">
+      </label>
+      <button type="button" (click)="agregarAsignatura()">{{ 'herramientas.pomodoro.agregar' | traducir }}</button>
+      @if (avisoDuplicado()) {
+        <p class="pomodoro__aviso">{{ 'herramientas.pomodoro.avisoDuplicado' | traducir }}</p>
+      }
+    </div>
 
-    <p class="pomodoro__asignatura-tiempo">
-      {{ 'herramientas.pomodoro.tiempoAsignatura' | traducir }}: {{ minutosDeAsignaturaActual() }}
-    </p>
+    <div class="pomodoro__asignaturas">
+      <p class="pomodoro__asignaturas-titulo">{{ 'herramientas.pomodoro.asignaturasTitulo' | traducir }}</p>
+      <ul>
+        @for (item of listaAsignaturas(); track item.nombre) {
+          <li
+            class="pomodoro__asignatura-chip"
+            [class.pomodoro__asignatura-chip--activa]="item.nombre === tiempoEstudio.asignatura()"
+            (click)="seleccionarAsignatura(item.nombre)">
+            <span>{{ item.nombre }}: {{ item.tiempo }}</span>
+            <button
+              type="button"
+              class="pomodoro__asignatura-eliminar"
+              [attr.aria-label]="'herramientas.pomodoro.eliminarAsignaturaTitulo' | traducir"
+              (click)="eliminarAsignatura(item.nombre, $event)">
+              ×
+            </button>
+          </li>
+        }
+      </ul>
+    </div>
   </div>
 </div>
