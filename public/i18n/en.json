@@ -26,15 +26,33 @@
     "verLive": "Watch live"
   },
   "estudio": {
-    "titulo": "Study Room",
-    "lofi": { "titulo": "Lofi Music" },
     "pomodoro": {
-      "titulo": "Pomodoro",
       "iniciar": "Start",
       "pausar": "Pause",
       "reiniciar": "Reset"
+    }
+  },
+  "herramientas": {
+    "tabs": {
+      "recursos": "Graphic resources",
+      "pomodoro": "Pomodoro",
+      "galeria": "Gallery",
+      "basesDatos": "Databases",
+      "enlacesRecursos": "Graphic resource links"
     },
-    "pinturas": { "titulo": "Painting Gallery" }
+    "recursos": {
+      "paletaTitulo": "Official university color palette",
+      "logoTitulo": "University logo"
+    },
+    "pomodoro": {
+      "duracion": "Duration (minutes)",
+      "total": "Total study time",
+      "lofi": "Lofi music",
+      "asignatura": "Subject",
+      "asignaturaPlaceholder": "Type a subject",
+      "tiempoAsignatura": "Time on this subject"
+    },
+    "enConstruccion": "Under construction"
   },
   "contacto": {
     "titulo": "Contact",
