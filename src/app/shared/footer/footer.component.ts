@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { TranslatePipe } from '../../core/pipes/translate.pipe';
 import { REDES_SOCIALES } from '../../core/data/redes.data';
 import { SITE_CONFIG } from '../../core/data/site-config.data';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [TranslatePipe],
+  imports: [],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
