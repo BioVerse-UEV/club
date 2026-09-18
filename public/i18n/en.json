@@ -45,12 +45,20 @@
       "logoTitulo": "University logo"
     },
     "pomodoro": {
-      "duracion": "Duration (minutes)",
+      "duracion": "Duration",
+      "min": "min",
+      "seg": "sec",
       "total": "Total study time",
       "lofi": "Lofi music",
-      "asignatura": "Subject",
-      "asignaturaPlaceholder": "Type a subject",
-      "tiempoAsignatura": "Time on this subject"
+      "asignatura": "New subject",
+      "nuevaAsignaturaPlaceholder": "Subject name",
+      "agregar": "Add",
+      "avisoDuplicado": "A subject with that name already exists",
+      "asignaturasTitulo": "Recorded subjects",
+      "eliminarAsignaturaTitulo": "Delete subject",
+      "confirmarEliminar": "Delete subject {nombre} and its accumulated time?",
+      "eliminarTodo": "Delete all time",
+      "confirmarEliminarTodo": "Delete all study time, including the total? This action cannot be undone."
     },
     "enConstruccion": "Under construction"
   },

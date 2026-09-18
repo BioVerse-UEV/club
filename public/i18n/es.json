@@ -45,12 +45,20 @@
       "logoTitulo": "Logo de la universidad"
     },
     "pomodoro": {
-      "duracion": "Duración (minutos)",
+      "duracion": "Duración",
+      "min": "min",
+      "seg": "seg",
       "total": "Tiempo total de estudio",
       "lofi": "Música lofi",
-      "asignatura": "Asignatura",
-      "asignaturaPlaceholder": "Escribe una asignatura",
-      "tiempoAsignatura": "Tiempo en esta asignatura"
+      "asignatura": "Nueva asignatura",
+      "nuevaAsignaturaPlaceholder": "Nombre de la asignatura",
+      "agregar": "Añadir",
+      "avisoDuplicado": "Ya existe una asignatura con ese nombre",
+      "asignaturasTitulo": "Asignaturas registradas",
+      "eliminarAsignaturaTitulo": "Eliminar asignatura",
+      "confirmarEliminar": "¿Eliminar la asignatura {nombre} y su tiempo acumulado?",
+      "eliminarTodo": "Eliminar todo el tiempo",
+      "confirmarEliminarTodo": "¿Eliminar todo el tiempo de estudio, incluido el total? Esta acción no se puede deshacer."
     },
     "enConstruccion": "En construcción"
   },
