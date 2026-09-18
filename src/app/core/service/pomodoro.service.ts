@@ -22,13 +22,15 @@ export class PomodoroService {
     return `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
   });
 
-  establecerDuracionMinutos(minutos: number): void {
+  establecerDuracion(minutos: number, segundos: number): void {
     if (this.enMarcha()) {
       return;
     }
-    const segundos = Math.max(1, Math.round(minutos)) * 60;
-    this.duracionSegundos.set(segundos);
-    this.segundosRestantes.set(segundos);
+    const minutosValidos = Math.max(0, Math.floor(minutos));
+    const segundosValidos = Math.min(59, Math.max(0, Math.floor(segundos)));
+    const totalSegundos = Math.max(1, minutosValidos * 60 + segundosValidos);
+    this.duracionSegundos.set(totalSegundos);
+    this.segundosRestantes.set(totalSegundos);
   }
 
   iniciar(): void {
