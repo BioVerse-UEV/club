@@ -1,19 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { PomodoroService } from './pomodoro.service';
-import { vi } from 'vitest';
 
 describe('PomodoroService', () => {
   let service: PomodoroService;
 
   beforeEach(() => {
-    vi.useFakeTimers();
-
     TestBed.configureTestingModule({});
     service = TestBed.inject(PomodoroService);
-  });
-
-  afterEach(() => {
-    vi.useRealTimers();
   });
 
   it('empieza en 25:00 y sin estar activo', () => {
@@ -21,40 +14,44 @@ describe('PomodoroService', () => {
     expect(service.activo()).toBe(false);
   });
 
-  it('cuenta hacia atrás un segundo por cada tick tras iniciar', () => {
-    service.iniciar();
-
-    vi.advanceTimersByTime(1000);
-
-    expect(service.tiempoFormateado()).toBe('24:59');
-    expect(service.activo()).toBe(true);
+  it('permite establecer una duración personalizada cuando está parado', () => {
+    service.establecerDuracionMinutos(10);
+    expect(service.tiempoFormateado()).toBe('10:00');
   });
 
-  it('no avanza el contador si no se ha iniciado', () => {
-    vi.advanceTimersByTime(5000);
-
-    expect(service.tiempoFormateado()).toBe('25:00');
+  it('no permite cambiar la duración mientras está en marcha', () => {
+    service.establecerDuracionMinutos(10);
+    service.iniciar();
+    service.establecerDuracionMinutos(20);
+    expect(service.tiempoFormateado()).toBe('10:00');
   });
 
-  it('pausar detiene el contador', () => {
+  it('avanzarSegundo solo resta si está activo', () => {
+    service.establecerDuracionMinutos(1);
+    service.avanzarSegundo();
+    expect(service.tiempoFormateado()).toBe('01:00');
     service.iniciar();
-    vi.advanceTimersByTime(1000);
+    service.avanzarSegundo();
+    expect(service.tiempoFormateado()).toBe('00:59');
+  });
 
-    service.pausar();
-
-    vi.advanceTimersByTime(3000);
-
-    expect(service.tiempoFormateado()).toBe('24:59');
+  it('se detiene sola al llegar a 0 y progreso llega a 1', () => {
+    service.establecerDuracionMinutos(1);
+    service.iniciar();
+    for (let i = 0; i < 60; i++) {
+      service.avanzarSegundo();
+    }
+    expect(service.tiempoFormateado()).toBe('00:00');
     expect(service.activo()).toBe(false);
+    expect(service.progreso()).toBe(1);
   });
 
-  it('reiniciar vuelve a 25:00 y detiene el contador', () => {
+  it('reiniciar vuelve a la duración establecida y para', () => {
+    service.establecerDuracionMinutos(5);
     service.iniciar();
-    vi.advanceTimersByTime(2000);
-
+    service.avanzarSegundo();
     service.reiniciar();
-
-    expect(service.tiempoFormateado()).toBe('25:00');
+    expect(service.tiempoFormateado()).toBe('05:00');
     expect(service.activo()).toBe(false);
   });
 });

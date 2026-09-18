@@ -1,17 +1,20 @@
-import { Injectable, signal, computed } from '@angular/core';
-
-const MINUTOS_TRABAJO = 25;
-const MINUTOS_DESCANSO = 5;
+import { Injectable, computed, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class PomodoroService {
-  private segundosRestantes = signal(MINUTOS_TRABAJO * 60);
+  private duracionSegundos = signal(25 * 60);
+  private segundosRestantes = signal(25 * 60);
   private enMarcha = signal(false);
-  private enDescanso = signal(false);
-  private intervaloId: ReturnType<typeof setInterval> | undefined;
 
   readonly activo = computed(() => this.enMarcha());
-  readonly descanso = computed(() => this.enDescanso());
+  readonly duracion = computed(() => this.duracionSegundos());
+  readonly progreso = computed(() => {
+    const total = this.duracionSegundos();
+    if (total === 0) {
+      return 1;
+    }
+    return 1 - this.segundosRestantes() / total;
+  });
   readonly tiempoFormateado = computed(() => {
     const total = this.segundosRestantes();
     const minutos = Math.floor(total / 60);
@@ -19,33 +22,38 @@ export class PomodoroService {
     return `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
   });
 
-  iniciar(): void {
+  establecerDuracionMinutos(minutos: number): void {
     if (this.enMarcha()) {
       return;
     }
-    this.enMarcha.set(true);
-    this.intervaloId = setInterval(() => this.tick(), 1000);
+    const segundos = Math.max(1, Math.round(minutos)) * 60;
+    this.duracionSegundos.set(segundos);
+    this.segundosRestantes.set(segundos);
+  }
+
+  iniciar(): void {
+    if (this.segundosRestantes() > 0) {
+      this.enMarcha.set(true);
+    }
   }
 
   pausar(): void {
     this.enMarcha.set(false);
-    if (this.intervaloId) {
-      clearInterval(this.intervaloId);
-    }
   }
 
   reiniciar(): void {
-    this.pausar();
-    this.enDescanso.set(false);
-    this.segundosRestantes.set(MINUTOS_TRABAJO * 60);
+    this.enMarcha.set(false);
+    this.segundosRestantes.set(this.duracionSegundos());
   }
 
-  private tick(): void {
+  avanzarSegundo(): void {
+    if (!this.enMarcha()) {
+      return;
+    }
     const restante = this.segundosRestantes();
-    if (restante <= 0) {
-      const pasandoADescanso = !this.enDescanso();
-      this.enDescanso.set(pasandoADescanso);
-      this.segundosRestantes.set((pasandoADescanso ? MINUTOS_DESCANSO : MINUTOS_TRABAJO) * 60);
+    if (restante <= 1) {
+      this.segundosRestantes.set(0);
+      this.enMarcha.set(false);
       return;
     }
     this.segundosRestantes.set(restante - 1);
