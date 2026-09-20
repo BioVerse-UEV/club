@@ -60,15 +60,33 @@
   }
 
   @media (max-width: 700px) {
+    &__hero {
+      height: auto;
+      min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    &__hero-titulo {
+      display: block;
+      position: static;
+      text-align: center;
+    }
+
     &__hero-titulo--fondo {
-      display: none;
+      display: block;
+      opacity: 0.15;
+      filter: blur(2px);
     }
 
     &__hero-logo {
-      right: 50%;
-      transform: translate(50%, -50%);
-      width: min(50vw, 220px);
-      height: min(50vw, 220px);
+      position: static;
+      transform: none;
+      width: min(45vw, 200px);
+      height: min(45vw, 200px);
     }
   }
 }
