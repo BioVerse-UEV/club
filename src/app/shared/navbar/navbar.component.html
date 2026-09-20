@@ -1,9 +1,10 @@
 <header class="navbar">
-  <div class="navbar__logo">
+  <a class="navbar__logo" routerLink="/">
     <img src="img/logo-header.png" [alt]="nombreClub">
-  </div>
-  <button class="navbar__toggle" (click)="alternarMenu()" [attr.aria-expanded]="menuAbierto()">
+  </a>
 
+  <button class="navbar__toggle" (click)="alternarMenu()" [attr.aria-expanded]="menuAbierto()">
+    <span></span><span></span><span></span>
   </button>
 
   <nav class="navbar__nav" [class.navbar__nav--abierto]="menuAbierto()">
