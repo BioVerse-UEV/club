@@ -9,15 +9,24 @@
     <button [class.herramientas__tab--activo]="pestanaActiva() === 'galeria'" (click)="seleccionarPestana('galeria')">
       {{ 'herramientas.tabs.galeria' | traducir }}
     </button>
-    <button [class.herramientas__tab--activo]="pestanaActiva() === 'bases-datos'"
-            (click)="seleccionarPestana('bases-datos')">
+    <button [class.herramientas__tab--activo]="pestanaActiva() === 'bases-datos'" (click)="seleccionarPestana('bases-datos')">
       {{ 'herramientas.tabs.basesDatos' | traducir }}
     </button>
-    <button [class.herramientas__tab--activo]="pestanaActiva() === 'enlaces-recursos'"
-            (click)="seleccionarPestana('enlaces-recursos')">
+    <button [class.herramientas__tab--activo]="pestanaActiva() === 'enlaces-recursos'" (click)="seleccionarPestana('enlaces-recursos')">
       {{ 'herramientas.tabs.enlacesRecursos' | traducir }}
     </button>
   </nav>
+
+  <select
+    class="herramientas__subheader-movil"
+    [ngModel]="pestanaActiva()"
+    (ngModelChange)="seleccionarPestana($event)">
+    <option value="recursos">{{ 'herramientas.tabs.recursos' | traducir }}</option>
+    <option value="pomodoro">{{ 'herramientas.tabs.pomodoro' | traducir }}</option>
+    <option value="galeria">{{ 'herramientas.tabs.galeria' | traducir }}</option>
+    <option value="bases-datos">{{ 'herramientas.tabs.basesDatos' | traducir }}</option>
+    <option value="enlaces-recursos">{{ 'herramientas.tabs.enlacesRecursos' | traducir }}</option>
+  </select>
 
   <div class="herramientas__contenido">
     @switch (pestanaActiva()) {
@@ -27,8 +36,7 @@
             <h2>{{ 'herramientas.recursos.paletaTitulo' | traducir }}</h2>
             <div class="recursos__swatches">
               @for (color of paleta; track color.hex) {
-                <div class="recursos__swatch">
-                  <span class="recursos__muestra" [style.background-color]="color.hex"></span>
+                <div class="recursos__swatch" [style.background-color]="color.hex">
                   <span class="recursos__codigo">{{ color.hex }}</span>
                 </div>
               }

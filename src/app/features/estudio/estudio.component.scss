@@ -2,37 +2,69 @@
   height: calc(100vh - var(--navbar-height) - var(--footer-height));
   display: flex;
   flex-direction: column;
+  background-color: var(--color-white);
   padding: 1.5rem 2rem;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    height: auto;
+  }
 
   &__subheader {
     flex: 0 0 auto;
     display: flex;
-    gap: 1.5rem;
+    gap: 0.5rem;
     flex-wrap: wrap;
-    border-bottom: 2px solid var(--color-primary);
-    padding-bottom: 0.75rem;
+    background-color: var(--color-primary);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
     margin-bottom: 1.5rem;
 
     button {
       background: none;
       border: none;
-      color: var(--color-primary);
+      color: var(--color-white);
       font: inherit;
       cursor: pointer;
-      padding: 0.3rem 0;
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+    }
+
+    @media (max-width: 768px) {
+      display: none;
     }
   }
 
   &__tab--activo {
+    background-color: var(--color-white);
+    color: var(--color-primary);
     font-weight: bold;
-    border-bottom: 3px solid var(--color-primary);
+  }
+
+  &__subheader-movil {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: block;
+      width: 100%;
+      margin-bottom: 1.5rem;
+      padding: 0.6rem 0.75rem;
+      border: none;
+      border-radius: 8px;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      font: inherit;
+      font-weight: bold;
+    }
   }
 
   &__contenido {
     flex: 1 1 auto;
     min-height: 0;
-    overflow-y: auto;
+
+    @media (max-width: 768px) {
+      height: auto;
+    }
   }
 
   &__pendiente {
@@ -44,59 +76,87 @@
 app-pomodoro-panel {
   display: block;
   height: 100%;
+
+  @media (max-width: 768px) {
+    height: auto;
+  }
 }
 
 .recursos {
   display: flex;
-  flex-wrap: wrap;
   gap: 2rem;
   height: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+  }
 
   &__paleta,
   &__logos {
     flex: 1 1 320px;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    @media (max-width: 768px) {
+      height: auto;
+    }
   }
 
   h2 {
+    flex: 0 0 auto;
     color: var(--color-primary);
   }
 
   &__swatches {
+    flex: 1 1 auto;
+    min-height: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     gap: 1rem;
+
+    @media (max-width: 768px) {
+      grid-template-rows: repeat(4, auto);
+    }
   }
 
   &__swatch {
+    border-radius: 10px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.3rem;
-  }
+    justify-content: center;
 
-  &__muestra {
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 6px;
-    border: 1px solid var(--color-gray-light);
+    @media (max-width: 768px) {
+      aspect-ratio: 3 / 2;
+    }
   }
 
   &__codigo {
-    font-size: 0.75rem;
-    color: var(--color-primary);
+    color: var(--color-white);
+    font-weight: bold;
+    font-size: 1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   }
 
   &__logos-grid {
+    flex: 1 1 auto;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    align-items: center;
 
     img {
+      flex: 1 1 0;
+      min-height: 0;
       width: 100%;
-      max-width: 260px;
-      height: auto;
+      object-fit: contain;
+
+      @media (max-width: 768px) {
+        flex: none;
+        height: auto;
+      }
     }
   }
 }
@@ -104,6 +164,11 @@ app-pomodoro-panel {
 .galeria {
   height: 100%;
   overflow-y: auto;
+
+  @media (max-width: 768px) {
+    height: auto;
+    overflow: visible;
+  }
 
   &__grid {
     display: grid;

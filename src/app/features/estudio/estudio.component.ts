@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
 import { PomodoroPanelComponent } from './pomodoro-panel/pomodoro-panel.component';
 import { PALETA_UNIVERSIDAD } from '../../core/data/paleta-universidad.data';
@@ -10,7 +11,7 @@ type PestanaHerramientas = 'recursos' | 'pomodoro' | 'galeria' | 'bases-datos' |
 @Component({
   selector: 'app-estudio',
   standalone: true,
-  imports: [TranslatePipe, PomodoroPanelComponent],
+  imports: [FormsModule, TranslatePipe, PomodoroPanelComponent],
   templateUrl: './estudio.component.html',
   styleUrl: './estudio.component.scss',
 })
