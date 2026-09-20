@@ -8,33 +8,75 @@
   position: relative;
   z-index: 10;
 
-  &__logo img {
-    height: 32px;
-    display: block;
+  &__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    img {
+      height: 32px;
+      display: block;
+    }
   }
 
   &__toggle {
     display: none;
     flex-direction: column;
-    gap: 4px;
-    background: none;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: var(--color-gray-light);
     border: none;
     cursor: pointer;
-    padding: 0.4rem;
 
     span {
+      display: block;
       width: 22px;
-      height: 2px;
-      background-color: var(--color-text);
+      height: 3px;
+      border-radius: 2px;
+      background-color: var(--color-primary);
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
     }
   }
 
-  &__nav ul {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  &__nav {
+    ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+      position: absolute;
+      top: var(--navbar-height);
+      left: 0;
+      right: 0;
+      background-color: var(--color-white);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+      &.navbar__nav--abierto {
+        display: block;
+      }
+
+      ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 0;
+      }
+
+      li {
+        padding: 0.6rem 1.5rem;
+      }
+    }
   }
 
   &__link {
@@ -59,36 +101,6 @@
       cursor: pointer;
       font: inherit;
       padding: 0;
-    }
-  }
-
-  @media (max-width: 768px) {
-    &__toggle {
-      display: flex;
-    }
-
-    &__nav {
-      display: none;
-      position: absolute;
-      top: var(--navbar-height);
-      left: 0;
-      right: 0;
-      background-color: var(--color-white);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-      &--abierto {
-        display: block;
-      }
-
-      ul {
-        flex-direction: column;
-        gap: 0;
-        padding: 0.5rem 0;
-      }
-
-      li {
-        padding: 0.6rem 1.5rem;
-      }
     }
   }
 }
