@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
-import { EVENTOS } from '../../core/data/eventos.data';
+import { PUBLICACIONES } from '../../core/data/publicaciones.data';
+import { REDES_SOCIALES } from '../../core/data/redes.data';
 
 @Component({
   selector: 'app-eventos',
@@ -10,5 +11,6 @@ import { EVENTOS } from '../../core/data/eventos.data';
   styleUrl: './eventos.component.scss',
 })
 export class EventosComponent {
-  eventos = EVENTOS;
+  publicaciones = PUBLICACIONES;
+  redesVideo = REDES_SOCIALES.filter((red) => red.nombre !== 'LinkedIn');
 }

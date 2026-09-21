@@ -1,39 +1,77 @@
-.eventos {
+.media {
   padding: 2rem;
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  &__redes {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__red-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  &__lista {
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
   }
 
-  &__card {
-    border: 1px solid var(--color-primary);
-    border-radius: 8px;
-    padding: 1rem;
-  }
-
-  &__fotos {
+  &__fila {
     display: flex;
-    gap: 0.5rem;
-    overflow-x: auto;
-
-    img {
-      width: 120px;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 4px;
-    }
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
 
-  &__fecha {
+  &__video {
+    position: relative;
+    flex: 1 1 320px;
+    max-width: 460px;
+    aspect-ratio: 16 / 9;
+    border: 3px solid var(--color-primary);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--color-primary);
-    font-weight: bold;
+    text-decoration: none;
   }
 
-  &__enlaces {
+  &__en-vivo {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
     display: flex;
-    gap: 1rem;
-    margin-top: 0.5rem;
+    align-items: center;
+    gap: 0.3rem;
+    background-color: var(--color-white);
+    color: var(--color-ink);
+    border: 1px solid var(--color-ink);
+    border-radius: 4px;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &__en-vivo-punto {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+  }
+
+  &__descripcion {
+    flex: 1 1 260px;
+    color: var(--color-primary);
+    line-height: 1.5;
   }
 }
