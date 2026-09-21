@@ -20,10 +20,8 @@
     "timeline": { "titulo": "Our History" },
     "equipo": { "titulo": "The Team" }
   },
-  "eventos": {
-    "titulo": "Events & Media",
-    "verVideo": "Watch video",
-    "verLive": "Watch live"
+  "media": {
+    "enVivo": "Live"
   },
   "estudio": {
     "pomodoro": {
