@@ -13,16 +13,6 @@ export interface MiembroEquipo {
   foto: string;
 }
 
-export interface Evento {
-  id: string;
-  titulo: string;
-  fecha: string;
-  fotos: string[];
-  sinopsis: string;
-  videoUrl: string;
-  liveUrl?: string;
-}
-
 export interface PistaLofi {
   id: string;
   titulo: string;
