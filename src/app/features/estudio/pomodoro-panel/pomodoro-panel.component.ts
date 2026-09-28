@@ -6,11 +6,13 @@ import { PomodoroService } from '../../../core/service/pomodoro.service';
 import { TiempoEstudioService } from '../../../core/service/tiempo-estudio.service';
 import { PISTAS_LOFI } from '../../../core/data/lofi-tracks.data';
 import { PINTURAS } from '../../../core/data/pinturas.data';
+import { AcuarelaRevealComponent } from '../../../shared/acuarela/acuarela-reveal.component';
+import { CREDITO_PAINT_POMODORO } from '../../../core/data/creditos.data';
 
 @Component({
   selector: 'app-pomodoro-panel',
   standalone: true,
-  imports: [FormsModule, TranslatePipe],
+  imports: [FormsModule, TranslatePipe, AcuarelaRevealComponent],
   templateUrl: './pomodoro-panel.component.html',
   styleUrl: './pomodoro-panel.component.scss',
 })
@@ -29,6 +31,7 @@ export class PomodoroPanelComponent implements OnInit, OnDestroy {
   nuevaAsignaturaTexto = signal('');
   avisoDuplicado = signal(false);
   pistaSeleccionada = signal(this.pistas[0]?.archivo ?? '');
+  credito = CREDITO_PAINT_POMODORO;
 
   readonly tiempoTotalFormateado = computed(() =>
     this.formatearMinutos(this.tiempoEstudio.totalSegundos()),

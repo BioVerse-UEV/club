@@ -42,10 +42,17 @@
     <button type="button" class="pomodoro__eliminar-todo" (click)="eliminarTodo()">
       {{ 'herramientas.pomodoro.eliminarTodo' | traducir }}
     </button>
+    <p class="pomodoro__credito">
+      {{ 'herramientas.pomodoro.creditoPrefijo' | traducir }}
+      <a [href]="credito.url" target="_blank" rel="noopener">{{ credito.nombre }}</a>
+    </p>
   </div>
 
   <div class="pomodoro__imagen">
-    <img [src]="imagen.imagen" [alt]="imagen.titulo" [style.opacity]="pomodoro.progreso()">
+    <app-acuarela-reveal
+      [imagenUrl]="imagen.imagen"
+      [progreso]="pomodoro.progreso()"
+      [alt]="imagen.titulo"></app-acuarela-reveal>
     <div class="pomodoro__imagen-info">
       <p>{{ imagen.autor }}</p>
       <p>{{ imagen.titulo }}</p>
