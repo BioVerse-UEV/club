@@ -35,11 +35,11 @@
   &__hero-logo {
     position: absolute;
     top: 50%;
-    right: 6vw;
+    right: 4vw;
     transform: translateY(-50%);
     z-index: 2;
-    width: min(38vw, 380px);
-    height: min(38vw, 380px);
+    width: min(55vw, 75vh);
+    height: min(55vw, 75vh);
   }
 
   &__hero-pie {
@@ -85,8 +85,8 @@
     &__hero-logo {
       position: static;
       transform: none;
-      width: min(45vw, 200px);
-      height: min(45vw, 200px);
+      width: min(75vw, 320px);
+      height: min(75vw, 320px);
     }
   }
 }
