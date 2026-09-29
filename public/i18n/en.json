@@ -34,6 +34,7 @@
     "tabs": {
       "recursos": "Graphic resources",
       "pomodoro": "Pomodoro",
+      "creditoPrefijo": "Powered by:",
       "galeria": "Gallery",
       "basesDatos": "Databases",
       "enlacesRecursos": "Graphic resource links"
