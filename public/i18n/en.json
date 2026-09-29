@@ -17,8 +17,8 @@
     }
   },
   "conocenos": {
-    "timeline": { "titulo": "Our History" },
-    "equipo": { "titulo": "The Team" }
+    "textoIzquierda": "PENDING: write the about-us text (left column)",
+    "textoDerecha": "PENDING: write the about-us text (right column)"
   },
   "media": {
     "enVivo": "Live"

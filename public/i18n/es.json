@@ -17,8 +17,8 @@
     }
   },
   "conocenos": {
-    "timeline": { "titulo": "Nuestra Historia" },
-    "equipo": { "titulo": "El Equipo" }
+    "textoIzquierda": "PENDIENTE DE ESCRIBIR EL TEXTO SOBRE EL CLUB (columna izquierda)",
+    "textoDerecha": "PENDIENTE DE ESCRIBIR EL TEXTO SOBRE EL CLUB (columna derecha)"
   },
   "media": {
     "enVivo": "En directo"
