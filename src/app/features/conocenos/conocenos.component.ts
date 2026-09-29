@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
-import { PRESIDENTES } from '../../core/data/presidentes.data';
 import { EQUIPO } from '../../core/data/equipo.data';
+import { agruparEnFilas } from './agrupar-en-filas';
+
+const MIEMBROS_POR_FILA = 3;
 
 @Component({
   selector: 'app-conocenos',
@@ -11,6 +13,5 @@ import { EQUIPO } from '../../core/data/equipo.data';
   styleUrl: './conocenos.component.scss',
 })
 export class ConocenosComponent {
-  presidentes = PRESIDENTES;
-  equipo = EQUIPO;
+  filas = agruparEnFilas(EQUIPO, MIEMBROS_POR_FILA);
 }
