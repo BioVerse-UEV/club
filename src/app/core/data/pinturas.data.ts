@@ -5,7 +5,7 @@ export const PINTURAS: Pintura[] = [
     id: 'pintura-1',
     titulo: 'Don Quixote bacterial colonization',
     autor: 'Cristina García',
-    imagen: '/img/pinturas/Cristina.jpeg',
+    imagen: 'img/pinturas/Cristina.jpeg',
   },
   // {
   //   id: 'pintura-2',

@@ -31,10 +31,10 @@
     }
   },
   "herramientas": {
+    "creditoPrefijo": "Impulsado por:",
     "tabs": {
       "recursos": "Recursos gráficos",
       "pomodoro": "Pomodoro",
-      "creditoPrefijo": "Impulsado por:",
       "galeria": "Galería",
       "basesDatos": "Bases de datos",
       "enlacesRecursos": "Enlaces a recursos gráficos"
