@@ -4,6 +4,7 @@ import { TranslatePipe } from '../../core/pipes/translate.pipe';
 import { TranslationService } from '../../core/service/translation.service';
 import { NAVEGACION } from '../../core/data/navegacion.data';
 import { SITE_CONFIG } from '../../core/data/site-config.data';
+import { MARCA } from '../../core/data/marca.data';
 
 @Component({
   selector: 'app-navbar',
@@ -15,6 +16,7 @@ import { SITE_CONFIG } from '../../core/data/site-config.data';
 export class NavbarComponent {
   navegacion = NAVEGACION;
   nombreClub = SITE_CONFIG.nombreClub;
+  marca = MARCA;
   menuAbierto = signal(false);
 
   constructor(public translationService: TranslationService) {}
@@ -27,3 +29,4 @@ export class NavbarComponent {
     this.menuAbierto.set(false);
   }
 }
+

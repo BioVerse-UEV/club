@@ -1,6 +1,6 @@
 <header class="navbar">
   <a class="navbar__logo" routerLink="/">
-    <img src="img/logo-header.png" [alt]="nombreClub">
+    <img [src]="marca.logoCabecera" [alt]="nombreClub">
   </a>
 
   <button class="navbar__toggle" (click)="alternarMenu()" [attr.aria-expanded]="menuAbierto()">
@@ -11,11 +11,7 @@
     <ul>
       @for (item of navegacion; track item.ruta) {
         <li>
-          <a [routerLink]="item.ruta"
-             routerLinkActive="navbar__link--activo"
-             [routerLinkActiveOptions]="{exact: true}"
-             class="navbar__link"
-             (click)="cerrarMenu()">
+          <a [routerLink]="item.ruta" routerLinkActive="navbar__link--activo" [routerLinkActiveOptions]="{exact: true}" class="navbar__link" (click)="cerrarMenu()">
             {{ item.etiqueta | traducir }}
           </a>
         </li>

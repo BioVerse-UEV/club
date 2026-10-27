@@ -2,11 +2,15 @@
   height: var(--navbar-height);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 2rem;
   padding: 0 1.5rem;
   background-color: var(--color-white);
   position: relative;
   z-index: 10;
+
+  @media (max-width: 768px) {
+    gap: 0.75rem;
+  }
 
   &__logo {
     display: flex;
@@ -15,6 +19,7 @@
 
     img {
       height: 32px;
+      width: auto;
       display: block;
     }
   }
@@ -92,6 +97,7 @@
     display: flex;
     gap: 0.4rem;
     align-items: center;
+    margin-left: auto;
     color: var(--color-text);
 
     button {
