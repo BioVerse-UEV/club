@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
 import { EQUIPO } from '../../core/data/equipo.data';
+import { MARCA } from '../../core/data/marca.data';
 import { agruparEnFilas } from './agrupar-en-filas';
 
 const MIEMBROS_POR_FILA = 3;
@@ -14,4 +15,5 @@ const MIEMBROS_POR_FILA = 3;
 })
 export class ConocenosComponent {
   filas = agruparEnFilas(EQUIPO, MIEMBROS_POR_FILA);
+  marca = MARCA;
 }

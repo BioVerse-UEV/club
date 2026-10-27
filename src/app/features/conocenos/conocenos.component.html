@@ -4,7 +4,7 @@
   </aside>
 
   <div class="conocenos__arbol">
-    <img class="conocenos__logo" src="img/logo-header.png" alt="BioVerse">
+    <img class="conocenos__logo" [src]="marca.logoCabecera" alt="BioVerse">
 
     @for (fila of filas; track $index) {
       <div class="conocenos__tronco"></div>
