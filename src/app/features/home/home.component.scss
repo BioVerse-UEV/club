@@ -9,7 +9,7 @@
   &__hero-titulo {
     position: absolute;
     font-family: 'Anton', sans-serif;
-    font-size: clamp(3rem, 13vw, 30rem);
+    font-size: clamp(3rem, min(18vw, 36vh), 36rem);
     letter-spacing: 0.01em;
     line-height: 0.8;
     color: var(--color-white);
@@ -17,14 +17,14 @@
     margin: 0;
 
     &--frente {
-      top: 6%;
-      left: 4%;
+      top: 2%;
+      left: 0.25%;
       z-index: 3;
     }
 
     &--fondo {
-      bottom: 6%;
-      right: 4%;
+      bottom: 2%;
+      right: 0.25%;
       text-align: right;
       opacity: 0.15;
       filter: blur(3px);
@@ -44,19 +44,15 @@
 
   &__hero-pie {
     position: absolute;
-    left: 2rem;
+    left: 1%;
     bottom: 1rem;
     z-index: 3;
-    color: var(--color-white);
-    font-size: 0.75rem;
-
-    p {
-      margin: 0.15rem 0;
-    }
   }
 
-  &__hero-club {
-    font-weight: bold;
+  &__hero-uni {
+    display: block;
+    width: clamp(6.5rem, 8.5vw, 10rem);
+    height: auto;
   }
 
   @media (max-width: 700px) {
@@ -67,17 +63,17 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      padding: 2rem 1rem;
+      padding: 1rem 0.5rem 8.5rem;
     }
 
     &__hero-titulo {
       display: block;
       position: static;
       text-align: center;
+      font-size: 25vw;
     }
 
     &__hero-titulo--fondo {
-      display: block;
       opacity: 0.15;
       filter: blur(2px);
     }
@@ -85,8 +81,16 @@
     &__hero-logo {
       position: static;
       transform: none;
-      width: min(75vw, 320px);
-      height: min(75vw, 320px);
+      width: min(60vw, 280px);
+      height: min(60vw, 280px);
+    }
+
+    &__hero-pie {
+      left: 0.5rem;
+    }
+
+    &__hero-uni {
+      width: 7.5rem;
     }
   }
 }
