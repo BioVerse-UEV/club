@@ -5,7 +5,6 @@ import { SITE_CONFIG } from '../../core/data/site-config.data';
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })

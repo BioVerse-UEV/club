@@ -1,11 +1,19 @@
 <footer class="footer">
+  <span class="footer__copy">&copy; {{ anio }} {{ nombreClub }}</span>
+
   <div class="footer__redes">
     @for (red of redes; track red.nombre) {
-      <a [href]="red.url" target="_blank" rel="noopener">{{ red.nombre }}</a>
+      <a
+        class="footer__red"
+        [href]="red.url"
+        target="_blank"
+        rel="noopener"
+        [attr.aria-label]="red.nombre"
+        [title]="red.nombre">
+        <img [src]="'img/iconos/' + red.icono + '.svg'" alt="">
+      </a>
     }
   </div>
-  <div class="footer__creditos">
-    <span>&copy; {{ anio }} {{ nombreClub }}</span>
-    <span>A Kallik Project</span>
-  </div>
+
+  <span class="footer__credito">A Kallik Project</span>
 </footer>
