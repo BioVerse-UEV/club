@@ -15,7 +15,12 @@
     height: 36px;
     border-radius: 50%;
     background-color: var(--color-primary);
-    color: var(--color-white);
+
+    img {
+      width: 55%;
+      height: 55%;
+      filter: brightness(0) invert(1);
+    }
   }
 
   &__lista {

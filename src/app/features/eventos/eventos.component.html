@@ -2,25 +2,7 @@
   <div class="media__redes">
     @for (red of redesVideo; track red.nombre) {
       <a [href]="red.url" target="_blank" rel="noopener" class="media__red-icono" [attr.aria-label]="red.nombre">
-        @switch (red.icono) {
-          @case ('tiktok') {
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-              <path d="M14 3v10.5a3.5 3.5 0 1 1-2-3.163V8a5.5 5.5 0 1 0 4 5.3V9.5a6.97 6.97 0 0 0 4 1.26V8.5a4.98 4.98 0 0 1-4-2.02V3h-2z"/>
-            </svg>
-          }
-          @case ('instagram') {
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 8h3l2-2h6l2 2h3v11H4z"/>
-              <circle cx="12" cy="13" r="3.5"/>
-            </svg>
-          }
-          @case ('youtube') {
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="5" width="20" height="14" rx="4"/>
-              <path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/>
-            </svg>
-          }
-        }
+        <img [src]="'img/iconos/' + red.icono + '.svg'" alt="">
       </a>
     }
   </div>
