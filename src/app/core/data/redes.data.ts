@@ -1,8 +1,24 @@
 import { RedSocial } from '../models/interfaces';
 
 export const REDES_SOCIALES: RedSocial[] = [
-  { nombre: 'Instagram', url: 'PENDIENTE DE PONER URL INSTAGRAM', icono: 'instagram' },
-  { nombre: 'TikTok', url: 'PENDIENTE DE PONER URL TIKTOK', icono: 'tiktok' },
-  { nombre: 'YouTube', url: 'PENDIENTE DE PONER URL YOUTUBE', icono: 'youtube' },
-  { nombre: 'LinkedIn', url: 'PENDIENTE DE PONER URL LINKEDIN', icono: 'linkedin' },
+  {
+    nombre: 'Instagram',
+    url: 'https://www.instagram.com/bioverse_uev',
+    icono: 'instagram',
+  },
+  {
+    nombre: 'TikTok',
+    url: 'https://www.tiktok.com/@bioverse_uev',
+    icono: 'tiktok',
+  },
+  {
+    nombre: 'YouTube',
+    url: 'https://www.youtube.com/@bioverseuev',
+    icono: 'youtube',
+  },
+  {
+    nombre: 'LinkedIn',
+    url: 'https://www.linkedin.com/company/bioverseuev/',
+    icono: 'linkedin',
+  },
 ];
