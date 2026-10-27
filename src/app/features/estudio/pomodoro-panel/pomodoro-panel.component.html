@@ -52,10 +52,10 @@
     <app-acuarela-reveal
       [imagenUrl]="imagen.imagen"
       [progreso]="pomodoro.progreso()"
-      [alt]="imagen.titulo"></app-acuarela-reveal>
+      [alt]="imagen.titulo || ('herramientas.galeria.sinTitulo' | traducir)"></app-acuarela-reveal>
     <div class="pomodoro__imagen-info">
-      <p>{{ imagen.autor }}</p>
-      <p>{{ imagen.titulo }}</p>
+      <p class="pomodoro__imagen-autor">{{ imagen.autor }}</p>
+      <p class="pomodoro__imagen-titulo">{{ imagen.titulo || ('herramientas.galeria.sinTitulo' | traducir) }}</p>
     </div>
   </div>
 

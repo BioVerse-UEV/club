@@ -9,7 +9,7 @@
 
 .pomodoro {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 5fr 11fr 4fr;
   gap: 2rem;
   height: 100%;
 
@@ -24,8 +24,8 @@
     min-width: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     gap: 1rem;
   }
 
@@ -38,8 +38,9 @@
   }
 
   &__reloj {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 4.2vw, 4.5rem);
     font-weight: bold;
+    line-height: 1;
     color: var(--color-primary);
     margin: 0;
   }
@@ -47,7 +48,7 @@
   &__duracion {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.4rem;
   }
 
@@ -105,7 +106,7 @@
   &__botones {
     display: flex;
     gap: 0.75rem;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
 
     button {
@@ -150,24 +151,37 @@
 
   &__imagen-info {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 0.4rem 0.75rem;
-    background-color: rgba(255, 255, 255, 0.88);
-    color: var(--color-primary);
-    font-size: 0.8rem;
+    left: 0.75rem;
+    bottom: 0.75rem;
+    max-width: calc(100% - 1.5rem);
+    padding: 0.35rem 0.7rem;
+    background-color: rgba(255, 255, 255, 0.82);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 2px;
 
     p {
-      margin: 0.1rem 0;
+      margin: 0;
+      line-height: 1.25;
     }
+  }
+
+  &__imagen-autor {
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary-dark);
+  }
+
+  &__imagen-titulo {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--color-primary);
   }
 
   &__credito {
     margin: 0;
     color: var(--color-primary);
     font-size: 0.75rem;
-    text-align: center;
 
     a {
       color: var(--color-primary);
