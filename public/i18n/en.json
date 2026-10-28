@@ -62,14 +62,39 @@
     "enConstruccion": "Under construction"
   },
   "contacto": {
-    "titulo": "Contact",
-    "redes": { "titulo": "Follow Us" },
-    "sugerencias": {
-      "titulo": "Suggestion Box",
-      "nombre": "Name",
+    "titulo": "Talk to us",
+    "formulario": {
+      "nombre": "Full name",
+      "email": "Email address",
       "mensaje": "Message",
-      "enviar": "Send",
+      "enviar": "Send message",
+      "exito": "Thank you! We have received your message."
+    },
+    "sugerencias": {
+      "titulo": "Suggestion box",
+      "mensaje": "Your suggestion",
+      "enviar": "Send suggestion",
       "exito": "Thanks for your suggestion!"
+    },
+    "estado": {
+      "enviando": "Sending...",
+      "error": "We couldn't send it right now. Please try again later or write to us at:"
+    },
+    "errores": {
+      "obligatorio": "This field is required.",
+      "email": "Enter a valid email, for example name@domain.com.",
+      "corto": "Write at least 10 characters.",
+      "largo": "The message is too long (maximum 1000 characters)."
+    },
+    "info": {
+      "redes": "Follow us",
+      "contactoTitulo": "Write to us",
+      "contactoTexto": "Use it to ask questions, suggest collaborations or tell us you want to take part. Enter your full name, an email where we can reply and your message, and we will answer as soon as we can.",
+      "sugerenciasTitulo": "Suggestion box",
+      "sugerenciasTexto": "Do you have an idea to improve the club, the website or our activities? Tell us in the box below. You only need to write the message: we don't ask for your name or email.",
+      "datosTitulo": "Other ways to reach us",
+      "unirseTitulo": "Want to join the club?",
+      "unirseTexto": "Write to us using the contact form and we will explain how to take part in our activities."
     }
   }
 }

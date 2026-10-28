@@ -62,14 +62,39 @@
     "enConstruccion": "En construcción"
   },
   "contacto": {
-    "titulo": "Contacto",
-    "redes": { "titulo": "Síguenos" },
-    "sugerencias": {
-      "titulo": "Buzón de Sugerencias",
-      "nombre": "Nombre",
+    "titulo": "Habla con nosotros",
+    "formulario": {
+      "nombre": "Nombre completo",
+      "email": "Correo electrónico",
       "mensaje": "Mensaje",
-      "enviar": "Enviar",
+      "enviar": "Enviar mensaje",
+      "exito": "¡Gracias! Hemos recibido tu mensaje."
+    },
+    "sugerencias": {
+      "titulo": "Buzón de sugerencias",
+      "mensaje": "Tu sugerencia",
+      "enviar": "Enviar sugerencia",
       "exito": "¡Gracias por tu sugerencia!"
+    },
+    "estado": {
+      "enviando": "Enviando...",
+      "error": "No se ha podido enviar ahora mismo. Inténtalo de nuevo más tarde o escríbenos a:"
+    },
+    "errores": {
+      "obligatorio": "Este campo es obligatorio.",
+      "email": "Escribe un correo válido, por ejemplo nombre@dominio.com.",
+      "corto": "Escribe al menos 10 caracteres.",
+      "largo": "El mensaje es demasiado largo (máximo 1000 caracteres)."
+    },
+    "info": {
+      "redes": "Síguenos",
+      "contactoTitulo": "Escríbenos",
+      "contactoTexto": "Úsalo para resolver dudas, proponer colaboraciones o contarnos que quieres participar. Pon tu nombre completo, un correo donde podamos responderte y tu mensaje, y te contestaremos lo antes posible.",
+      "sugerenciasTitulo": "Buzón de sugerencias",
+      "sugerenciasTexto": "¿Tienes una idea para mejorar el club, la web o nuestras actividades? Cuéntanosla en el recuadro de abajo. Solo necesitas escribir el mensaje: no te pedimos nombre ni correo.",
+      "datosTitulo": "Otras vías de contacto",
+      "unirseTitulo": "¿Quieres unirte al club?",
+      "unirseTexto": "Escríbenos con el formulario de contacto y te explicaremos cómo participar en nuestras actividades."
     }
   }
 }
