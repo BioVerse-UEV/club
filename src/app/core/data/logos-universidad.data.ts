@@ -1,6 +1,7 @@
 export interface LogoUniversidad {
   id: string;
   archivo: string;
+  fondoOscuro?: boolean;
 }
 
 export const LOGOS_UNIVERSIDAD: LogoUniversidad[] = [
@@ -8,6 +9,7 @@ export const LOGOS_UNIVERSIDAD: LogoUniversidad[] = [
   {
     id: 'logo-seminegativo',
     archivo: 'img/universidad/png/UE_Valencia_Logo_Semi-Negative_RGB-2.png',
+    fondoOscuro: true,
   },
   { id: 'logo-ue', archivo: 'img/universidad/png/Icono_UE-4.png' },
 ];
