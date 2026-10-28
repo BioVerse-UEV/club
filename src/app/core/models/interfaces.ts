@@ -21,8 +21,9 @@ export interface PistaLofi {
 
 export interface Pintura {
   id: string;
-  titulo: string;
+  titulo?: string;
   autor: string;
+  descripcion?: string;
   imagen: string;
 }
 
