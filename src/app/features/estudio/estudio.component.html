@@ -34,19 +34,24 @@
         <section class="recursos">
           <div class="recursos__paleta">
             <h2>{{ 'herramientas.recursos.paletaTitulo' | traducir }}</h2>
-            <div class="recursos__swatches">
-              @for (color of paleta; track color.hex) {
-                <div class="recursos__swatch" [style.background-color]="color.hex">
-                  <span class="recursos__codigo">{{ color.hex }}</span>
-                </div>
-              }
+            <div class="recursos__swatches-caja">
+              <div class="recursos__swatches">
+                @for (color of paleta; track color.hex) {
+                  <div class="recursos__swatch" [style.background-color]="color.hex">
+                    <span class="recursos__codigo">{{ color.hex }}</span>
+                  </div>
+                }
+              </div>
             </div>
           </div>
           <div class="recursos__logos">
             <h2>{{ 'herramientas.recursos.logoTitulo' | traducir }}</h2>
             <div class="recursos__logos-grid">
               @for (logo of logos; track logo.id) {
-                <img [src]="logo.archivo" alt="Universidad Europea de Valencia">
+                <img
+                  [src]="logo.archivo"
+                  alt="Universidad Europea de Valencia"
+                  [class.recursos__logo--oscuro]="logo.fondoOscuro">
               }
             </div>
           </div>
@@ -60,8 +65,13 @@
           <div class="galeria__grid">
             @for (obra of galeria; track obra.id) {
               <figure>
-                <img [src]="obra.imagen" [alt]="obra.titulo">
-                <figcaption>{{ obra.titulo }} — {{ obra.autor }}</figcaption>
+                <img [src]="obra.imagen" [alt]="obra.titulo || ('herramientas.galeria.sinTitulo' | traducir)" loading="lazy">
+                <figcaption>
+                  {{ obra.titulo || ('herramientas.galeria.sinTitulo' | traducir) }} — {{ obra.autor }}
+                  @if (obra.descripcion) {
+                    <span class="galeria__descripcion">{{ obra.descripcion }}</span>
+                  }
+                </figcaption>
               </figure>
             }
           </div>
