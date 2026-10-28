@@ -1,34 +1,127 @@
 <section class="contacto">
-  <h1>{{ 'contacto.titulo' | traducir }}</h1>
+  <div class="contacto__formularios">
+    <h1>{{ 'contacto.titulo' | traducir }}</h1>
 
-  <div class="contacto__info">
-    <p>{{ siteConfig.emailContacto }}</p>
-    <p>{{ siteConfig.telefonoContacto }}</p>
-    <p>{{ siteConfig.direccion }}</p>
-  </div>
-
-  <div class="contacto__redes">
-    <h2>{{ 'contacto.redes.titulo' | traducir }}</h2>
-    @for (red of redes; track red.nombre) {
-      <a [href]="red.url" target="_blank" rel="noopener">{{ red.nombre }}</a>
-    }
-  </div>
-
-  <div class="contacto__sugerencias">
-    <h2>{{ 'contacto.sugerencias.titulo' | traducir }}</h2>
-    @if (enviado()) {
-      <p class="contacto__exito">{{ 'contacto.sugerencias.exito' | traducir }}</p>
-    }
-    <form [formGroup]="formulario" (ngSubmit)="enviarSugerencia()">
+    <form
+      class="contacto__form"
+      [formGroup]="formularioContacto"
+      (ngSubmit)="enviarContacto()"
+      (input)="reiniciarEstado(estadoContacto)"
+      novalidate>
       <label>
-        {{ 'contacto.sugerencias.nombre' | traducir }}
-        <input type="text" formControlName="nombre">
+        {{ 'contacto.formulario.nombre' | traducir }}
+        <input type="text" formControlName="nombre" autocomplete="name">
+        @if (errorDe(formularioContacto, 'nombre'); as clave) {
+          <span class="contacto__error">{{ clave | traducir }}</span>
+        }
       </label>
+
+      <label>
+        {{ 'contacto.formulario.email' | traducir }}
+        <input type="email" formControlName="email" autocomplete="email">
+        @if (errorDe(formularioContacto, 'email'); as clave) {
+          <span class="contacto__error">{{ clave | traducir }}</span>
+        }
+      </label>
+
+      <label>
+        {{ 'contacto.formulario.mensaje' | traducir }}
+        <textarea formControlName="mensaje" rows="3"></textarea>
+        @if (errorDe(formularioContacto, 'mensaje'); as clave) {
+          <span class="contacto__error">{{ clave | traducir }}</span>
+        }
+      </label>
+
+      <button class="contacto__boton" type="submit" [disabled]="estadoContacto() === 'enviando'">
+        {{ 'contacto.formulario.enviar' | traducir }}
+      </button>
+
+      @switch (estadoContacto()) {
+        @case ('enviando') {
+          <p class="contacto__estado">{{ 'contacto.estado.enviando' | traducir }}</p>
+        }
+        @case ('enviado') {
+          <p class="contacto__estado contacto__estado--ok" role="status">{{ 'contacto.formulario.exito' | traducir }}</p>
+        }
+        @case ('error') {
+          <p class="contacto__estado contacto__estado--error" role="alert">
+            {{ 'contacto.estado.error' | traducir }} {{ siteConfig.emailContacto }}
+          </p>
+        }
+      }
+    </form>
+
+    <form
+      class="contacto__sugerencia"
+      [formGroup]="formularioSugerencia"
+      (ngSubmit)="enviarSugerencia()"
+      (input)="reiniciarEstado(estadoSugerencia)"
+      novalidate>
+      <h2>{{ 'contacto.sugerencias.titulo' | traducir }}</h2>
+
       <label>
         {{ 'contacto.sugerencias.mensaje' | traducir }}
-        <textarea formControlName="mensaje" rows="4"></textarea>
+        <textarea formControlName="mensaje" rows="2"></textarea>
+        @if (errorDe(formularioSugerencia, 'mensaje'); as clave) {
+          <span class="contacto__error">{{ clave | traducir }}</span>
+        }
       </label>
-      <button type="submit">{{ 'contacto.sugerencias.enviar' | traducir }}</button>
+
+      <button class="contacto__boton" type="submit" [disabled]="estadoSugerencia() === 'enviando'">
+        {{ 'contacto.sugerencias.enviar' | traducir }}
+      </button>
+
+      @switch (estadoSugerencia()) {
+        @case ('enviando') {
+          <p class="contacto__estado">{{ 'contacto.estado.enviando' | traducir }}</p>
+        }
+        @case ('enviado') {
+          <p class="contacto__estado contacto__estado--ok" role="status">{{ 'contacto.sugerencias.exito' | traducir }}</p>
+        }
+        @case ('error') {
+          <p class="contacto__estado contacto__estado--error" role="alert">
+            {{ 'contacto.estado.error' | traducir }} {{ siteConfig.emailContacto }}
+          </p>
+        }
+      }
     </form>
   </div>
+
+  <aside class="contacto__info">
+    <div class="contacto__redes">
+      <span class="contacto__redes-etiqueta">{{ 'contacto.info.redes' | traducir }}</span>
+      @for (red of redes; track red.nombre) {
+        <a
+          class="contacto__red"
+          [href]="red.url"
+          target="_blank"
+          rel="noopener"
+          [attr.aria-label]="red.nombre"
+          [title]="red.nombre">
+          <img [src]="'img/iconos/' + red.icono + '.svg'" alt="">
+        </a>
+      }
+    </div>
+
+    <div class="contacto__bloque">
+      <h2>{{ 'contacto.info.contactoTitulo' | traducir }}</h2>
+      <p>{{ 'contacto.info.contactoTexto' | traducir }}</p>
+    </div>
+
+    <div class="contacto__bloque">
+      <h2>{{ 'contacto.info.sugerenciasTitulo' | traducir }}</h2>
+      <p>{{ 'contacto.info.sugerenciasTexto' | traducir }}</p>
+    </div>
+
+    <div class="contacto__bloque contacto__datos">
+      <h2>{{ 'contacto.info.datosTitulo' | traducir }}</h2>
+      <p>{{ siteConfig.emailContacto }}</p>
+      <p>{{ siteConfig.direccion }}</p>
+    </div>
+
+    <div class="contacto__bloque">
+      <h2>{{ 'contacto.info.unirseTitulo' | traducir }}</h2>
+      <p>{{ 'contacto.info.unirseTexto' | traducir }}</p>
+    </div>
+  </aside>
 </section>
